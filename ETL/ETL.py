@@ -1,4 +1,3 @@
-# load files from the data folder into pandas dataframes
 
 import pandas as pd
 import os
@@ -239,24 +238,13 @@ def main():
     # print(performance_df.head())
     # print(student_df.head())
 
-    # validate department data
-    valid_department_df, invalid_department_df = validate_department_data(staging1_department_df)
+    staging2_department_df, invalid_department_df = validate_department_data(staging1_department_df)
 
     # validate student data
-    valid_student_df, invalid_student_df = validate_student_data(staging1_student_df, valid_department_df)
+    staging2_student_df, invalid_student_df = validate_student_data(staging1_student_df, staging2_department_df)
 
     # validate performance data
-    valid_performance_df, invalid_performance_df = validate_performance_data(staging1_performance_df, valid_student_df)
-
-
-    
-    
-
-
-
-
-
-
+    staging2_performance_df, invalid_performance_df = validate_performance_data(staging1_performance_df, staging2_student_df)
 
 
 
